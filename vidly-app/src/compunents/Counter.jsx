@@ -54,6 +54,15 @@ class Counter extends Component {
             Decreament
           </button>
         </span>
+        <span>
+          <button
+            key={this.props.key}
+            onClick={() => this.props.onDelete(this.props.id)}
+            className="m-2 btn btn-danger"
+          >
+            Delete
+          </button>
+        </span>
       </div>
     );
   }
