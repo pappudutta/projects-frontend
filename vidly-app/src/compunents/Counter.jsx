@@ -2,24 +2,22 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   render() {
+    const { counter, onIcreament, onDelete } = this.props;
     return (
       <div>
-        <h2> {this.props.name} </h2>
+        <h2> {counter.name} </h2>
         {/*  */}
         <span
           className={
-            this.props.value > 0
-              ? "badge bg-primary"
-              : this.props.value < 0
-              ? "badge bg-danger"
-              : "badge bg-warning"
+            counter.value > 0 ? "badge bg-primary" : "badge bg-warning"
           }
         >
-          {this.props.value === 0 ? "Zero" : this.props.value}
+          {counter.value === 0 ? "Zero" : counter.value}
         </span>
+
         <span>
           <button
-            onClick={() => this.props.onIncreament(this.props.counter)}
+            onClick={() => onIcreament(counter)}
             className="m-2 btn btn-secondary"
           >
             Increament
@@ -27,16 +25,8 @@ class Counter extends Component {
         </span>
         <span>
           <button
-            onClick={() => this.props.onDecrement(this.props.counter)}
-            className="m-2 btn btn-secondary"
-          >
-            Decreament
-          </button>
-        </span>
-        <span>
-          <button
             key={this.key}
-            onClick={() => this.props.onDelete(this.props.id)}
+            onClick={() => onDelete(counter.id)}
             className="m-2 btn btn-danger"
           >
             Delete
