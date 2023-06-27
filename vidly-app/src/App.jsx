@@ -15,6 +15,16 @@ class App extends Component {
     ],
   };
 
+  constructor(props) {
+    super(props);
+    console.log("APP - constructor");
+  }
+  // below will render last
+  componentDidMount(props) {
+    // Ajax call
+    console.log("App - Mount: ");
+  }
+
   handleIncrement = counter => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
@@ -35,6 +45,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App- rendered");
     return (
       <>
         <NavBar totalCounters={this.state.counters.length} />
