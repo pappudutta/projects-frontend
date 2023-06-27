@@ -8,10 +8,10 @@ import NavBar from "./compunents/NavBar";
 class App extends Component {
   state = {
     counters: [
-      { id: 0, value: 10, name: "Books" },
+      { id: 0, value: 1, name: "Books" },
       { id: 1, value: 0, name: "Pencil" },
-      { id: 2, value: 5, name: "Color Pencils" },
-      { id: 3, value: 56, name: "Games" },
+      { id: 2, value: 1, name: "Color Pencils" },
+      { id: 3, value: 2, name: "Games" },
     ],
   };
 
@@ -29,7 +29,15 @@ class App extends Component {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
     counters[index].value++;
-    this.setState({ counters: counters });
+    this.setState({ counters });
+  };
+
+  handleDecrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+
+    counters[index].value--;
+    this.setState({ counters });
   };
 
   handleDelete = currentIdFromDeleteBtn => {
@@ -46,6 +54,7 @@ class App extends Component {
 
   render() {
     console.log("App- rendered");
+
     return (
       <>
         <NavBar totalCounters={this.state.counters.length} />
@@ -54,6 +63,7 @@ class App extends Component {
           <Counters
             counters={this.state.counters}
             onIcreament={this.handleIncrement}
+            onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
             onReset={this.handleReset}
           />
