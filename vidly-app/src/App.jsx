@@ -59,14 +59,14 @@ class App extends Component {
       <>
         <NavBar totalCounters={this.state.counters.length} />
         <main className="container">
-          {/* <Movies /> */}
-          <Counters
+          <Movies />
+          {/* <Counters
             counters={this.state.counters}
             onIcreament={this.handleIncrement}
             onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
             onReset={this.handleReset}
-          />
+          /> */}
 
           {/* <Practice />  */}
         </main>
