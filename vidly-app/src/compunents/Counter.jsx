@@ -13,50 +13,36 @@ class Counter extends Component {
   render() {
     console.log("App - Counter rendered");
 
-    const { counter, onIcreament, onDelete, onDecrement } = this.props;
-
-    const disabled = counter.value <= 0 ? "disabled" : null;
-
+    const { counter, onIcreament, onDelete } = this.props;
     return (
-      <div className="row align-items-center">
-        <div className="col-1">
-          <div
-            className={
-              counter.value > 0 ? "badge bg-primary" : "badge bg-warning"
-            }
-          >
-            {counter.value === 0 ? "Zero" : counter.value}
-          </div>
-        </div>
-        <div className="col-1">
+      <div>
+        <h2> {counter.name} </h2>
+        {/*  */}
+        <span
+          className={
+            counter.value > 0 ? "badge bg-primary" : "badge bg-warning"
+          }
+        >
+          {counter.value === 0 ? "Zero" : counter.value}
+        </span>
+
+        <span>
           <button
             onClick={() => onIcreament(counter)}
             className="m-2 btn btn-secondary"
           >
-            +
+            Increament
           </button>
-        </div>
-
-        <div className="col-1">
-          <button
-            type="button"
-            onClick={() => onDecrement(counter)}
-            className="m-2 btn btn-secondary"
-            disabled={disabled}
-          >
-            -
-          </button>
-        </div>
-
-        <div className="col-1">
+        </span>
+        <span>
           <button
             key={this.key}
             onClick={() => onDelete(counter.id)}
-            className="m-2 btn btn-light"
+            className="m-2 btn btn-danger"
           >
-            🗑️
+            Delete
           </button>
-        </div>
+        </span>
       </div>
     );
   }

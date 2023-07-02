@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
+<<<<<<< HEAD
+=======
 import Like from "./common/like";
+>>>>>>> parent of 904c8e7 (feat: pagination)
 
 class Movies extends Component {
   state = {
@@ -22,6 +25,8 @@ class Movies extends Component {
   //   };
   // Testing Purpose
 
+<<<<<<< HEAD
+=======
   handleToggleLike(movie) {
     const movies = [...this.state.movies];
     const index = movies.indexOf(movie);
@@ -30,6 +35,7 @@ class Movies extends Component {
     this.setState({ movies });
   }
 
+>>>>>>> parent of 904c8e7 (feat: pagination)
   render() {
     const { length: count } = this.state.movies;
 
@@ -47,8 +53,6 @@ class Movies extends Component {
               <th>Genre</th>
               <th>Stock</th>
               <th>Price</th>
-              <th></th>
-              <th> </th>
             </tr>
           </thead>
           <tbody>
@@ -58,12 +62,6 @@ class Movies extends Component {
                 <td> {movie.genre.name} </td>
                 <td> {movie.numberInStock} </td>
                 <td> {movie.dailyRentalRate} </td>
-                <td>
-                  <Like
-                    liked={movie.liked}
-                    onClick={() => this.handleToggleLike(movie)}
-                  />
-                </td>
                 <td>
                   <button
                     onClick={() => this.handleDelete(movie)}
