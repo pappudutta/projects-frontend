@@ -27,6 +27,7 @@ class Movies extends Component {
 
     return (
       <div>
+        <h1>Pagination is working</h1>
         <h3>
           {count === 0
             ? "There is no movie in the list."
