@@ -17,12 +17,12 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    console.log("APP - constructor");
+    // console.log("APP - constructor");
   }
   // below will render last
   componentDidMount(props) {
     // Ajax call
-    console.log("App - Mount: ");
+    // console.log("App - Mount: ");
   }
 
   handleIncrement = counter => {
@@ -45,12 +45,14 @@ class App extends Component {
   };
 
   render() {
-    console.log("App- rendered");
+    // console.log("App- rendered");
     return (
       <>
         <NavBar totalCounters={this.state.counters.length} />
         <main className="container">
-          {/* <Movies /> */}
+          <Movies />
+          <hr />
+          <br />
           <Counters
             counters={this.state.counters}
             onIcreament={this.handleIncrement}
@@ -58,7 +60,7 @@ class App extends Component {
             onReset={this.handleReset}
           />
 
-          {/* <Practice />  */}
+          {/* <Practice /> */}
         </main>
       </>
     );

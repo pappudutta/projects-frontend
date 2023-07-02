@@ -7,12 +7,10 @@ class Counter extends Component {
   }
 
   componentWillUnmount() {
-    console.log("Unmount");
+    // console.log("Unmount");
   }
 
   render() {
-    console.log("App - Counter rendered");
-
     const { counter, onIcreament, onDelete } = this.props;
     return (
       <div>

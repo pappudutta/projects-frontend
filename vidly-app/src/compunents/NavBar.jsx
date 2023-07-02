@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class NavBar extends Component {
   //   state less functional compunent
   render() {
-    console.log("App - Navbar rendered");
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">

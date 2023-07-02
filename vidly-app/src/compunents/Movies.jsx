@@ -1,43 +1,29 @@
 import React, { Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
-<<<<<<< HEAD
-=======
-import Like from "./common/like";
->>>>>>> parent of 904c8e7 (feat: pagination)
+import Pagination from "./common/Pagination";
+import { Paginate } from "./utils/paginate";
 
 class Movies extends Component {
   state = {
     movies: getMovies(),
+    currrentPage: 1,
+    pageSize: 4,
   };
 
   handleDelete = movie => {
     const movies = this.state.movies.filter(m => m._id !== movie._id);
     this.setState({ movies });
   };
-  // Testing Purpose
-  //   handleDelete = movie => {
-  //     const movies = this.state.movies;
-  //     const index = movies.findIndex(i => i._id === movie._id);
-  //     if (index !== -1) {
-  //       movies.splice(index, 1);
-  //       this.setState(movies);
-  //     }
-  //   };
-  // Testing Purpose
 
-<<<<<<< HEAD
-=======
-  handleToggleLike(movie) {
-    const movies = [...this.state.movies];
-    const index = movies.indexOf(movie);
-    movies[index] = { ...movies[index] };
-    movies[index].liked = !movies[index].liked;
-    this.setState({ movies });
-  }
+  handlePageChange = page => {
+    this.setState({ currentPage: page });
+  };
 
->>>>>>> parent of 904c8e7 (feat: pagination)
   render() {
     const { length: count } = this.state.movies;
+    const { pageSize, currentPage } = this.state;
+
+    const movies = Paginate(this.state.movies, currentPage, pageSize);
 
     return (
       <div>
@@ -56,7 +42,7 @@ class Movies extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.movies.map(movie => (
+            {movies.map(movie => (
               <tr key={movie._id}>
                 <td> {movie.title} </td>
                 <td> {movie.genre.name} </td>
@@ -74,6 +60,12 @@ class Movies extends Component {
             ))}
           </tbody>
         </table>
+        <Pagination
+          itemsCount={this.state.movies.length}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={this.handlePageChange}
+        />
       </div>
     );
   }
