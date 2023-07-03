@@ -74,6 +74,7 @@ class Movies extends Component {
 
     return (
       <div>
+        <h1 style={{ color: "red" }}> Restart from 18 sorting 02:39 </h1>
         <h3>
           {count === 0
             ? "There is no movie in the list."
@@ -102,8 +103,6 @@ class Movies extends Component {
             />
           </div>
         </div>
-
-        <h1>Axios</h1>
       </div>
     );
   }
