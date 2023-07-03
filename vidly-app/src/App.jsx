@@ -60,7 +60,7 @@ class App extends Component {
             onReset={this.handleReset}
           />
 
-          {/* <Practice /> */}
+          <Practice />
         </main>
       </>
     );

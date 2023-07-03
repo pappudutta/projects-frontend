@@ -27,46 +27,56 @@ class Movies extends Component {
 
     return (
       <div>
-        <h1>Pagination is working</h1>
         <h3>
           {count === 0
             ? "There is no movie in the list."
             : `There are ${count} movies in this list.`}
         </h3>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Genre</th>
-              <th>Stock</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {movies.map(movie => (
-              <tr key={movie._id}>
-                <td> {movie.title} </td>
-                <td> {movie.genre.name} </td>
-                <td> {movie.numberInStock} </td>
-                <td> {movie.dailyRentalRate} </td>
-                <td>
-                  <button
-                    onClick={() => this.handleDelete(movie)}
-                    className="btn btn-danger btn-sm"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <Pagination
-          itemsCount={this.state.movies.length}
-          pageSize={pageSize}
-          currentPage={currentPage}
-          onPageChange={this.handlePageChange}
-        />
+        <div className="row">
+          <div className="col-3">
+            <ul className="list-group">
+              <li className="list-group-item">All Genre</li>
+            </ul>
+          </div>
+          <div className="col-8">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Genre</th>
+                  <th>Stock</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {movies.map(movie => (
+                  <tr key={movie._id}>
+                    <td> {movie.title} </td>
+                    <td> {movie.genre.name} </td>
+                    <td> {movie.numberInStock} </td>
+                    <td> {movie.dailyRentalRate} </td>
+                    <td>
+                      <button
+                        onClick={() => this.handleDelete(movie)}
+                        className="btn btn-danger btn-sm"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <Pagination
+              itemsCount={this.state.movies.length}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={this.handlePageChange}
+            />
+          </div>
+        </div>
+
+        <h1>Axios</h1>
       </div>
     );
   }
