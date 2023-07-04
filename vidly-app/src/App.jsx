@@ -53,12 +53,12 @@ class App extends Component {
           <Movies />
           <hr />
           <br />
-          <Counters
+          {/* <Counters
             counters={this.state.counters}
             onIcreament={this.handleIncrement}
             onDelete={this.handleDelete}
             onReset={this.handleReset}
-          />
+          /> */}
 
           {/* <Practice /> */}
         </main>

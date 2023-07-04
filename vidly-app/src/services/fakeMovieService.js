@@ -17,6 +17,13 @@ const movies = [
     dailyRentalRate: 2.5,
   },
   {
+    _id: "5b21ca3weeeb7f6fbccd471816",
+    title: "Die Hard 2",
+    genre: { _id: "5b21ca3eweeb7f6fbccd471818", name: "Action" },
+    numberInStock: 51,
+    dailyRentalRate: 8.5,
+  },
+  {
     _id: "5b21ca3eeb7f6fbccd471817",
     title: "Get Out",
     genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },

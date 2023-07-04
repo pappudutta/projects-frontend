@@ -41,17 +41,11 @@ class Movies extends Component {
     movies[index].liked = !movies[index].liked;
     this.setState({ movies: movies });
   };
-  handleSort = path => {
-    const sortColumn = { ...this.state.sortColumn };
-
-    if (sortColumn.path === path)
-      sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
-    else {
-      sortColumn.path = path;
-      sortColumn.order = "asc";
-    }
+  handleSort = sortColumn => {
     this.setState({ sortColumn });
   };
+
+  getPageData = () => {};
 
   render() {
     const { length: count } = this.state.movies;
@@ -91,6 +85,7 @@ class Movies extends Component {
           <div className="col-8">
             <MoviesTable
               movies={movies}
+              sortColumn={sortColumn}
               onDelete={this.handleDelete}
               onLiked={this.handleLike}
               onSort={this.handleSort}
