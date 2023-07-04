@@ -6,8 +6,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 // font awesome incons
 
-const Like = props => {
-  const { liked, onliked } = props;
+const Like = ({ liked, onliked }) => {
   return (
     <div>
       <FontAwesomeIcon

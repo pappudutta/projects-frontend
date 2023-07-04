@@ -45,10 +45,7 @@ class Movies extends Component {
     this.setState({ sortColumn });
   };
 
-  getPageData = () => {};
-
-  render() {
-    const { length: count } = this.state.movies;
+  getPageData = () => {
     const {
       pageSize,
       currentPage,
@@ -56,7 +53,6 @@ class Movies extends Component {
       movies: allMovies,
       sortColumn,
     } = this.state;
-
     const filtered =
       selectedGenre && selectedGenre._id
         ? allMovies.filter(m => m.genre._id === selectedGenre._id)
@@ -66,13 +62,22 @@ class Movies extends Component {
 
     const movies = Paginate(sorted, currentPage, pageSize);
 
+    return { totalCount: filtered.length, data: movies };
+  };
+
+  render() {
+    const { length: count } = this.state.movies;
+    const { pageSize, currentPage, sortColumn } = this.state;
+
+    const { totalCount, data: movies } = this.getPageData();
+
     return (
       <div>
-        <h1 style={{ color: "red" }}> Restart from 18 sorting 02:39 </h1>
+        <h1 style={{ color: "red" }}> Find me in "Movies.jsx" </h1>
         <h3>
           {count === 0
             ? "There is no movie in the list."
-            : `There are ${filtered.length} movies in this list.`}
+            : `There are ${totalCount} movies in this list.`}
         </h3>
         <div className="row">
           <div className="col-3">
@@ -91,7 +96,7 @@ class Movies extends Component {
               onSort={this.handleSort}
             />
             <Pagination
-              itemsCount={filtered.length}
+              itemsCount={totalCount}
               pageSize={pageSize}
               currentPage={currentPage}
               onPageChange={this.handlePageChange}
