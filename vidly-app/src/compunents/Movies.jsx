@@ -73,14 +73,10 @@ class Movies extends Component {
 
     return (
       <div>
-        <h1 style={{ color: "red" }}> Find me in "Movies.jsx" </h1>
-        <h3>
-          {count === 0
-            ? "There is no movie in the list."
-            : `There are ${totalCount} movies in this list.`}
-        </h3>
-        <div className="row">
-          <div className="col-3">
+        <h1 style={{ color: "red" }}></h1>
+
+        <div className="row my-2">
+          <div className="col-3 mt-5">
             <ListGroup
               items={this.state.genres}
               selectedItem={this.state.selectedGenre}
@@ -88,6 +84,11 @@ class Movies extends Component {
             />
           </div>
           <div className="col-8">
+            <h3>
+              {count === 0
+                ? "There is no movie in the list."
+                : `There are ${totalCount} movies in this list.`}
+            </h3>
             <MoviesTable
               movies={movies}
               sortColumn={sortColumn}
